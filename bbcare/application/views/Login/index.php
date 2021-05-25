@@ -134,8 +134,8 @@
 				</div>
 				<?= form_close(); ?>
 			</div>
-                    <a style="margin-left:650px;" href="<?php echo site_url() ?>Login/reg">Register Instansi &nbsp;&nbsp;</a>
-					<a style="margin-left:650px;" href="<?php echo site_url() ?>Login/reg_pengasuh">Register Pengasuh &nbsp;&nbsp;</a>
+                    <!-- <a style="margin-left:650px;" href="<?php echo site_url() ?>Login/reg">Register Instansi &nbsp;&nbsp;</a>
+					<a style="margin-left:650px;" href="<?php echo site_url() ?>Login/reg_pengasuh">Register Pengasuh &nbsp;&nbsp;</a> -->
 		</div>
 	</div>
 	

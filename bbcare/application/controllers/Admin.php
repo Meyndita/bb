@@ -96,5 +96,14 @@
 				$this->load->view('Template/footer');
 			}
 		}
+
+		public function CV() {
+			// $username = $this->session->userdata('username');
+
+			$this->load->view('Template/headerAdmin');			
+			$this->load->view('Admin/biodata');
+			$this->load->view('Template/footer');
+
+		}
     }
 ?>

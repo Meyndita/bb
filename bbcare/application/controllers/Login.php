@@ -203,7 +203,7 @@
 			  $data['status'] = '';
 			  $data['status'] .= '<div style="color:black;">
 			  <h3 class="title-body" style="color:black;"> EMAIL Sudah diverifikasi,<br>Silahkan anda bisa masuk dengan username dan password yang ada di email <a href="' . base_url() . 'Login">here</a></h3><br><br>';
-			  $data['status'] .= "<h3 style='color:black;'>Data Account</h3><p style='color:black;'>username \t : " . $userrandom['username'] . "</p><p style='color:white;'>password \t : " . $userrandom['password'] . "</p></div>";
+			  $data['status'] .= "<h3 style='color:black;'>Data Account</h3><p style='color:black;'>username \t : " . $userrandom['username'] . "</p><p style='color:black;'>password \t : " . $userrandom['password'] . "</p></div>";
 			} else {
 			  $data['status'] = ' <h3 class="title-body" style="color:black;">Invalid Link</h1>';
 			}
@@ -303,7 +303,7 @@
 		{
 			if ($this->uri->segment(3)) {
 				$verification_key = $this->uri->segment(3);
-				if ($this->RegistPengasuh_Model->verify_email($verification_key)) {
+				if ($this->RegistPengasuh_Model->verify_email_pengasuh($verification_key)) {
 					$pengasuhData = $this->RegistPengasuh_Model->search_code($verification_key);
 					
 			  $userrandom = array(
@@ -319,7 +319,7 @@
 			  $resultText = "Registrasi berhasil";
 			  $message = "<p>Username dan password sementara untuk pengasuh</p>
 			  <br>
-			  <p>username \t\t\t :" . $userrandom['username'] . "</p>
+			  <p>username \t\t\t :" . $userrandom['nama_pengasuh'] . "</p>
 			  <p>password \t\t\t :" . $userrandom['password'] . "</p>
 			  <br>
 			  <p><strong>Harap segera melengkapi data pengguna anda</strong></p>
@@ -355,7 +355,7 @@
 			  $data['status'] = '';
 			  $data['status'] .= '<div style="color:black;">
 			  <h3 class="title-body" style="color:black;"> EMAIL Sudah diverifikasi,<br>Silahkan anda bisa masuk dengan username dan password yang ada di email <a href="' . base_url() . 'Login">here</a></h3><br><br>';
-			  $data['status'] .= "<h3 style='color:black;'>Data Account</h3><p style='color:black;'>username \t : " . $userrandom['username'] . "</p><p style='color:white;'>password \t : " . $userrandom['password'] . "</p></div>";
+			  $data['status'] .= "<h3 style='color:black;'>Data Account</h3><p style='color:black;'>username \t : " . $userrandom['nama_pengasuh'] . "</p><p style='color:black;'>password \t : " . $userrandom['password'] . "</p></div>";
 			} else {
 			  $data['status'] = ' <h3 class="title-body" style="color:black;">Invalid Link</h1>';
 			}

@@ -80,8 +80,8 @@
                 </ul> -->
               <!-- </li> -->
               <li><a href="<?=base_url('Login/register');?>">Daftar Pelanggan</a></li>
-              <li><a href="#">Daftar Pengasuh</a></li>
-              <li><a href="#">Daftar CV</a></li>
+              <li><a href="<?php echo site_url() ?>Login/reg_pengasuh">Daftar Pengasuh</a></li>
+              <li><a href="<?php echo site_url() ?>Login/reg">Daftar CV</a></li>
             </ul>
           </li> 
         </ul>

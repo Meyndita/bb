@@ -14,7 +14,7 @@
             return $this->db->get('pengasuh')->row();
         }
 
-        function verify_email($key)
+        function verify_email_pengasuh($key)
         {
             $this->db->where('verification_key', $key);
             $this->db->where('is_email_verified', 'no');
