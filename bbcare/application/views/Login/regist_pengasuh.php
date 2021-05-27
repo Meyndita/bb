@@ -76,7 +76,7 @@
 					Registrasi
 				</span>
 			</div>
-            <form class="user" method="post" action="<?php echo base_url(); ?>Login/reg_process_pengasuh">
+            <form class="user" method="post" action="<?php echo base_url(); ?>Register/reg_process_pengasuh">
 
 			<div class="login100-form validate-form"> 
 				

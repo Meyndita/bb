@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title><?php echo $title; ?></title>
+  <title>Baby Care</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   
@@ -80,7 +80,7 @@
                 </ul> -->
               <!-- </li> -->
               <li><a href="<?=base_url('Login/register');?>">Daftar Pelanggan</a></li>
-              <li><a href="<?php echo site_url() ?>Login/reg_pengasuh">Daftar Pengasuh</a></li>
+              <li><a href="<?php echo site_url() ?>Register/reg_pengasuh">Daftar Pengasuh</a></li>
               <li><a href="<?php echo site_url() ?>Login/reg">Daftar CV</a></li>
             </ul>
           </li> 

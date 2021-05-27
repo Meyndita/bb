@@ -77,6 +77,35 @@
             // var_dump($this->db->where('id', $id)->get('pelanggan')->row());
             // die;
         }
+
+        public function getKantor(){
+            return ($this->db->get('kantor')->result_array());
+            // var_dump($this->db->get('pelanggan'));
+            // die();
+            // var_dump($this->db->where('id', $id)->get('pelanggan')->row());
+            // die;
+        }
+
+        public function getKantorId($id){
+            return $this->db->where('id', $id)->get('kantor')->row();
+        }
+
+        public function insertKantor($id) {
+            if ($this->input->post('submit')) {
+            $array = array(
+                "alamat"=>$this->input->post('alamat', TRUE),
+                "telepon"=>$this->input->post('telepon', TRUE),
+                "kelurahan"=>$this->input->post('kelurahan', TRUE),
+                "kecamatan"=>$this->input->post('kecamatan', TRUE),
+                "kota"=>$this->input->post('kota', TRUE),
+                "visi"=>$this->input->post('visi', TRUE),
+                "misi"=>$this->input->post('misi', TRUE),
+                "deskripsi"=>$this->input->post('deskripsi', TRUE),
+                // "id_store"=>$id
+            );
+            }
+            $this->db->insert('kantor', $array);
+        }
         
     }
 ?>

@@ -4,7 +4,7 @@
 	class Register extends CI_Controller {
 		public function __construct() {
 			parent::__construct();
-			// $this->load->model('Register_Model');
+			$this->load->model('RegistPengasuh_Model');
             $this->load->library('form_validation');
 
 			// if ($this->session->userdata('level') != "owner") {
@@ -59,173 +59,157 @@
 	
 		}
 
-        public function regis_pengasuh()
-        {
-        $this->form_validation->set_rules('username', 'Username', 'required|trim');
-        $this->form_validation->set_rules('nama_pengasuh', 'nama_pengasuh', 'required|trim');
-        $this->form_validation->set_rules('nik', 'NIK', 'required|trim');
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
-            'is_unique' => 'Email sudah digunakan !',
-            'required' => 'Email tidak boleh kosong !',
-            'valid_email' => "Email tidak valid !"
-        ]);
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', [
-            'matches' => 'Password tidak sama !',
-            'required' => 'Password tidak boleh kosong !',
-            'min_length' => 'Password terlalu pendek!'
-        ]);
-        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
+        public function reg_pengasuh()
+		{
+		  $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
+			'is_unique' => 'Email sudah digunakan !',
+			'required' => 'Email tidak boleh kosong !',
+			'valid_email' => "Email tidak valid !"
+		  ]);
+		  // $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', [
+		  //     'matches' => 'Konfirmasi Password tidak sama !',
+		  //     'required' => 'Password tidak boleh kosong !',
+		  //     'min_length' => 'Password terlalu pendek!'
+		  // ]);
+		  // $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
+	  
+		  if ($this->form_validation->run() == false) {
+			$data['title'] = 'registrasi';
+			$this->load->view('login/regist_pengasuh', $data);
+		  } else {
+			$email = $this->input->post('email', true);
+	  
+			echo "gagal";
+		  }
+		}
 
-        if ($this->form_validation->run() == false) {
-            // $data['sekolah'] = json_decode($this->curl->simple_get($this->API));
-            $data['title'] = 'Baby Care | Registrasi';
-            $this->load->view('Login_Pengasuh', $data);
-        } else {
-            $email = $this->input->post('email', true);
-            $username = $this->input->post('username', true);
-            // $id_sekolah = $this->input->post('id_sekolah', true);
-            $data = [
-                'nama_pengasuh' => 'null',
-                'nik' => 'null',
-                'email' => htmlspecialchars($email),
-                'foto' => 'default.png',
-                'username' => htmlspecialchars($username),
-                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-                'agama' => 'null',
-                'alamat' => 'null',
-                'kategori' => 'null',
-                'no_telp' => 'null',
-                'tgl_lahir' => 'null',
-                'pendidikan' => 'null',
-                'status' => 'null',
-                'date_created' =>  time()
-            ];
-            $token = base64_encode(random_bytes(32));
-            $pengasuh_token = [
-                'email' => $email,
-                'token' => $token,
-                'username' => $username,
-                'date_created' => time()
+		public function reg_process_pengasuh()
+		{
+		  $verification_key = md5(rand());
+		  $data = array(
+			'nama_pengasuh'			=> $this->input->post('nama_pengasuh'),
+			'alamat'				=> 'null',
+			'telepon'				=> 'null',
+			'email'					=> $this->input->post('email', true),
+			'kategori'				=> 'null',
+			'nik'					=> $this->input->post('nik'),
+			'foto'					=> 'null',
+			'tgl_lahir'				=> 'null',
+			'agama'					=> 'null',
+			'status'				=> 'null',
+			'pendidikan'			=> 'null',
+			'verification_key'      =>  $verification_key
+		  );
+		  $update = $this->RegistPengasuh_Model->insert($data);
+			//   print_r($update);
+			//   exit;
+		  
+		  if ($update > 0) {
+			  
+			  $resultText = "Verifikasi Email";
+			  $message = "<p> Halo " . $this->input->post('nama_pengasuh') . "</p>
+			  <p>Terimakasih sudah melakukan registrasi, <br> untuk tahap selanjutnya silahkan klik <a href='" . base_url() . "Register/verify_email_pengasuh/" . $verification_key . "'>link</a>. untuk melakukan registrasi akun dan mendapatkan username dan password akun anda</p>
+			  <p><a href='" . base_url() . "Register/verify_email_pengasuh/" . $verification_key . "'>" . base_url() . "Register/verify_email_pengasuh/" . $verification_key . "</a></p>
+			  <p>Terimakasih,</p>";
+			  
+			  $config = [
+				  'protocol' 		=> 'smtp',
+				  'smtp_ssl' 		=> 'auto',
+				  'smtp_host' 		=> 'smtp.googlemail.com',
+				  'smtp_user' 		=> 'ensiserver2021@gmail.com',
+				  'smtp_pass' 		=> 'literasi2021',
+				  'smtp_port' 		=> 465,
+				  'smtp_crypto' 	=> 'ssl',
+				  'mailtype' 		=> 'html',
+				  'smtp_timeout' 	=> '4',
+				  'charset' 		=> 'iso-8859-1',
+				  'wordwrap' 		=> TRUE
+				];
+				
+				$this->load->library('email', $config);
+				$this->email->initialize($config);
+				$this->email->set_newline("\r\n");
+				$this->email->from('ensiserver2021@gmail.com', 'Literasi 2021');
+				$this->email->to($this->input->post('email'));
+				$this->email->cc('ensiserver2021@gmail.com');
+				$this->email->subject($resultText);
+				$this->email->message($message);
+				
+				if ($data = $this->email->send()) {
+					$berhasil = array('status' => 'Selamat registrasi anda sedang kami proses,<br> cek email anda');
+					$this->load->view('login/status', $berhasil);
+				} else {
+					$berhasil = array('status' => 'Registrasi gagal, harap coba lagi');
+					$this->load->view('login/status', $berhasil);
+				}
+			}
+		}
 
-            ];
-            $this->db->insert('pengasuh', $data);
-            $this->db->insert('pengasuh_token', $pengasuh_token);
-            $this->_sendEmail($token, 'verify');
+		function verify_email_pengasuh()
+		{
+				if ($this->uri->segment(3)) {
+					$verification_key = $this->uri->segment(3);
+					if ($this->RegistPengasuh_Model->verify_email($verification_key)) {
+						$pengasuhData = $this->RegistPengasuh_Model->search_code($verification_key);
+						
+				  $userrandom = array(
+					  "username" => "pengasuh_" . $pengasuhData->nama_pengasuh,
+					  "password" => rand(),
+					"is_active" =>'aktif',
+					"level" =>'pengasuh',
+					"id" => $pengasuhData->id,
+					'date_created' => time(),
+		  
+				  );
+				  $this->db->insert('user', $userrandom);
+				  $resultText = "Registrasi berhasil";
+				  $message = "<p>Username dan password sementara untuk admin</p>
+				  <br>
+				  <p>username \t\t\t :" . $userrandom['username'] . "</p>
+				  <p>password \t\t\t :" . $userrandom['password'] . "</p>
+				  <br>
+				  <p><strong>Harap segera melengkapi data pengguna anda</strong></p>
+				  <p>Registrasi sudah berhasil, tahap selanjutnya silahkan klik <a href='" . base_url() . "login/'>link</a></p>
+				  <p>Terimakasih</p>";
+		  
+				  $config = [
+					'protocol' => 'smtp',
+					'smtp_ssl' => 'auto',
+					'smtp_host' => 'smtp.googlemail.com',
+					'smtp_user' => 'ensiserver2021@gmail.com',
+					'smtp_pass' => 'literasi2021',
+					'smtp_port' => 465,
+					'smtp_crypto' => 'ssl',
+					'mailtype' => 'html',
+					'smtp_timeout' => '4',
+					'charset' => 'iso-8859-1',
+					'wordwrap' => TRUE
+				  ];
+		  
+				  $this->load->library('email', $config);
+				  $this->email->initialize($config);
+				  $this->email->set_newline("\r\n");
+				  $this->email->from('ensiserver2021@gmail.com', 'Literasi 2021');
+				  $this->email->to($pengasuhData->email);
+				  $this->email->cc('ensiserver2021@gmail.com');
+				  $this->email->subject($resultText);
+				  $this->email->message($message);
+				  $this->email->send();
+		  
+				  $this->RegistPengasuh_Model->regist_user($userrandom);
+		  
+				  $data['status'] = '';
+				  $data['status'] .= '<div style="color:black;">
+				  <h3 class="title-body" style="color:black;"> EMAIL Sudah diverifikasi,<br>Silahkan anda bisa masuk dengan username dan password yang ada di email <a href="' . base_url() . 'Login">here</a></h3><br><br>';
+				  $data['status'] .= "<h3 style='color:black;'>Data Account</h3><p style='color:black;'>username \t : " . $userrandom['username'] . "</p><p style='color:black;'>password \t : " . $userrandom['password'] . "</p></div>";
+				} else {
+				  $data['status'] = ' <h3 class="title-body" style="color:black;">Invalid Link</h1>';
+				}
+				print_r($data);
+				exit;
+				$this->load->view('login/email_verification', $data, false);
+			  }
+			}
 
-            $this->session->set_flashdata(
-                'message',
-                '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Congratulation!</strong> You account has been created, Please Activate your account.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>'
-            );
-            redirect('Login_Pengasuh');
-        }
-    }
-
-    private function _sendEmail($token, $type)
-    {
-        $config = [
-            'protocol' => 'smtp',
-            'smtp_host' => 'ssl://smtp.googlemail.com',
-            'smtp_user' => 'ensiserver2021@gmail.com',
-            'smtp_pass' => 'babycare2021',
-            'smtp_port' => 465,
-            'mailtype' => 'html',
-            'charset' => 'utf-8',
-            'newline' => "\r\n",
-        ];
-
-        $this->load->library('email', $config);
-        $this->email->initialize($config);
-        $this->email->from('ensiserver2021@gmail.com', 'Babycare 2021');
-        $this->email->to($this->input->post('email'));
-
-        if ($type  == 'verify') {
-            $this->email->subject('Account verification');
-            $this->email->message('Click this link to verify your account : <a href="'
-                . base_url() . 'Register/verify?email=' . $this->input->post('email') .
-                '&token=' . urlencode($token) . '">Active</a>');
-        } else if ($type == 'forgot') {
-            $this->email->subject('Reset Password');
-            $this->email->message('Click this link to reset your password : <a href="'
-                . base_url() . 'Register/resetPassword?email=' . $this->input->post('email') .
-                '&token=' . urlencode($token) . '">Reset Password</a>');
-        }
-        if ($this->email->send()) {
-            return true;
-        } else {
-            echo $this->email->print_debugger();
-            die();
-        }
-    }
-
-    public function verify()
-    {
-        $email = $this->input->get('email');
-        $token =  $this->input->get('token');
-
-        $user = $this->db->get_where('pengasuh', ['email' => $email])->row_array();
-        if ($user) {
-            $pengasuh_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
-            if ($pengasuh_token) {
-                if (time() - $user['date_created'] < (60 * 60 * 24)) {
-                    // $this->db->set('is_active', 1);
-                    $this->db->where('email', $email);
-                    $this->db->update('pengasuh');
-                    $this->db->delete('pengasuh_token', ['email' => $email]);
-
-                    $this->session->set_flashdata(
-                        'message',
-                        '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Congratulation!</strong> ' . $email . ' has been activated please login!
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>'
-                    );
-                    redirect('Login_Pengasuh');
-                } else {
-                    $this->db->delete('pengasuh', ['email' => $email]);
-                    $this->db->delete('pengasuh_token', ['email' => $email]);
-                    $this->session->set_flashdata(
-                        'message',
-                        '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                       Token Expired!
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>'
-                    );
-                    redirect('Login_Pengasuh');
-                }
-            } else {
-                $this->session->set_flashdata(
-                    'message',
-                    '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    Account activation failed! Token Invalid!
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>'
-                );
-                redirect('Login_Pengasuh');
-            }
-        } else {
-
-            $this->session->set_flashdata(
-                'message',
-                '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                Account activation failed! Wrong Email!
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>'
-            );
-            redirect('Login_Pengasuh');
-        }
-    }
     }
 ?>

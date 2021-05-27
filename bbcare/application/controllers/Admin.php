@@ -5,6 +5,7 @@
 		public function __construct() {
 			parent::__construct();
 			$this->load->model('Admin_Model');
+			$this->load->library('form_validation');
 
 			if ($this->session->userdata('level') != "admin") {
 				redirect('Login', 'refresh');
@@ -84,26 +85,38 @@
 			$this->form_validation->set_rules('telp', 'No. Telepon', 'trim|required');
 			$this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
 			$this->form_validation->set_rules('tgl_pesan', 'Tanggal Pesan', 'trim|required');
+			$this->form_validation->set_rules('pesan', 'Pesan', 'trim|required');
 			
 			if ($this->form_validation->run() == TRUE) {
 				$this->Admin_Model->Pesanan($id);
 				
-				redirect('Admin/Pesanan','refresh');
+				redirect('User/home','refresh');
 			}
 			else {
 				$this->load->view('Template/headerAdmin');
-				$this->load->view('Admin/pesanan');
+				$this->load->view('User/home');
 				$this->load->view('Template/footer');
 			}
 		}
 
 		public function CV() {
 			// $username = $this->session->userdata('username');
+			// $data['get'] = $this->Admin_Model->getKantorId($id);
+
+			$this->form_validation->set_rules('nama', 'Nama CV', 'trim|required');
+			$this->form_validation->set_rules('telepon', 'No. Telepon', 'trim|required');
+
+			if ($this->form_validation->run() == TRUE) {
+				$this->Admin_Model->insertKantor($id);
+
+				redirect('Admin/biodata','refresh');
+			}
+			else {
 
 			$this->load->view('Template/headerAdmin');			
 			$this->load->view('Admin/biodata');
 			$this->load->view('Template/footer');
-
+			}
 		}
     }
 ?>
