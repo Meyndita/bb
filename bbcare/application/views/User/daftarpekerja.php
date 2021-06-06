@@ -4,7 +4,7 @@
 
         <div class="section-title">
           <h2>Daftar Pekerja</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Baby Care menyediakan beberapa kategori pengasuh yang dapat diambil sesuai dengan kebutuhan Keluarga.</p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -31,7 +31,7 @@
               <li class="nav-item mt-2">
                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
                   <h4>Baby Sitter 4</h4>
-                  <p>Baby Sitter 4 atau Baby Sitter semi Balita.</p>
+                  <p>Baby Sitter 4 atau Baby Sitter Semi Balita.</p>
                 </a>
               </li>
             </ul>
@@ -40,27 +40,27 @@
             <div class="tab-content">
               <div class="tab-pane active show" id="tab-1">
                 <h3>Baby Sitter 1</h3>
-                <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                <img src="<?php echo base_url('assets/utama/assets/img/departments-1.jpg');?>" alt="" class="img-fluid">
-                <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                <p class="fst-italic">Baby Sitter Golongan 1 atau Baby Sitter Baby diperuntukkan mengasuh bayi usia 0 bulan hingga 1 tahun.</p>
+                <img src="<?php echo base_url('assets/utama/img/babysitter/bs-baby.jpg');?>" alt="" class="img-fluid">
+                <p>Baby Sitter Baby hanya melakukan pekerjaan khusus merawat bayi saja setiap hari tanpa melakukan pekerjaan rumah tangga lainnya yang tidak berhubungan dengan kebutuhan bayi.</p>
               </div>
               <div class="tab-pane" id="tab-2">
                 <h3>Baby Sitter 2</h3>
-                <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                <img src="<?php echo base_url('assets/utama/img/departments-2.jpg');?>" alt="" class="img-fluid">
-                <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                <p class="fst-italic">Baby Sitter Golongan 2 atau Baby Sitter Semi Baby diperuntukkan mengasuh bayi usia 0 bulan hingga 1 tahun dan melakukan pekerjaan rumah tangga.</p>
+                <img src="<?php echo base_url('assets/utama/img/babysitter/bs-semibaby.jpg');?>" alt="" class="img-fluid">
+                <p>Baby Sitter Semi Baby melakukan pekerjaan merawat bayi beserta melakukan pekerjaan rumah tangga lainnya.</p>
               </div>
               <div class="tab-pane" id="tab-3">
                 <h3>Baby Sitter 3</h3>
-                <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                <img src="<?php echo base_url('assets/utama/img/departments-3.jpg');?>" alt="" class="img-fluid">
-                <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                <p class="fst-italic">Baby Sitter Golongan 3 atau Baby Sitter Balita diperuntukkan mengasuh anak usia 1 tahun keatas.</p>
+                <img src="<?php echo base_url('assets/utama/img/babysitter/bs-balita.jpg');?>" alt="" class="img-fluid">
+                <p>Baby Sitter Balita hanya melakukan pekerjaan khusus merawat anak saja setiap hari tanpa melakukan pekerjaan rumah tangga lainnya yang tidak berhubungan dengan kebutuhan anak.</p>
               </div>
               <div class="tab-pane" id="tab-4">
                 <h3>Baby Sitter 4</h3>
-                <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                <img src="<?php echo base_url('assets/utama/img/departments-4.jpg');?>" alt="" class="img-fluid">
-                <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                <p class="fst-italic">Baby Sitter Golongan 4 atau Baby Sitter Semi Balita diperuntukkan mengasuh anak usia mulai 1 tahun keatas dan melakukan pekerjaan rumah tangga.</p>
+                <img src="<?php echo base_url('assets/utama/img/babysitter/bs-semibalita.jpg');?>" alt="" class="img-fluid">
+                <p>Baby Sitter Semi Balita melakukan pekerjaan merawat anak beserta melakukan pekerjaan rumah tangga lainnya.</p>
               </div>
             </div>
           </div>

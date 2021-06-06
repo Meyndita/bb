@@ -59,7 +59,7 @@
 					$this->session->set_userdata('username', $cek[0]->username);
 					// $this->session->set_userdata('foto', $cek[0]->foto);
 					// $this->session->set_userdata('id_store', $ck->id);
-					redirect('Pengasuh','refresh');
+					redirect('Pelanggan','refresh');
 				} 
 				// else if ($this->session->userdata('level') == "pencuci") {
 				// 	$this->session->set_userdata('username', $cek[0]->username);

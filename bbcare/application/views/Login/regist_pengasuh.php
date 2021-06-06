@@ -82,7 +82,7 @@
 				
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
 						<span class="label-input100">NIK</span>
-						<input type="number" name="nik" class="form-control" id="exampleLastName" placeholder="Masukkan Nomor Induk Kependudukan" required>
+						<input type="number" name="nik" class="form-control" id="exampleLastName" placeholder="Masukkan Nomor Induk Kependudukan" minlength="16" maxlength="16" required>
 						<span class="focus-input100"></span>
 					</div>
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
@@ -92,8 +92,7 @@
 					</div>
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
 						<span class="label-input100">Email</span>
-                        <input type="text" class="form-control form-control-user border-left-primary"
-                                        id="email" name="email" placeholder="Masukkan Email" value="<?= set_value('email')?>" required is_unique>
+                        <input type="email" class="form-control form-control-user border-left-primary" id="email" name="email" placeholder="Masukkan Email" value="<?= set_value('email')?>" required is_unique>
 						<span class="focus-input100"></span>
 					</div>
 

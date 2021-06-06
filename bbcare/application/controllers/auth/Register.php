@@ -73,7 +73,7 @@ class Register extends CI_Controller {
 
             $this->session->set_flashdata('store_flash', 'Pendaftaran akun berhasil!');
 
-            redirect('pengasuh');
+            redirect('pelanggan');
         }
     }
 }
