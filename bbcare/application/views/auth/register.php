@@ -10,8 +10,8 @@
 		
 		<link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>"/>
 		<!-- <link rel="stylesheet" type="text/css" href="<?=base_url('assets/babycare/templatelogin/css/main.css')?>"> -->
-		<title><?=$title?></title>
-<title>Login</title>
+		<title><?=$title= 'Register Pelanggan'?></title>
+<title>Register</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -42,61 +42,55 @@
 			<div class="loader"></div>
 		</div>
 
-		<!-- Main section start -->
-		<!-- <div class="main-site-warp">
-			<div class="site-menu-warp">
-				<div class="close-menu">x</div> -->
-				<!-- Main menu -->
-				<!-- <ul class="site-menu">
-					<li><a href="<?=base_url('Welcome')?>">Home</a></li>
-					<li><a href="<?=base_url('Welcome/check')?>">Check your Shoes!</a></li>
-					<li><a href="<?=base_url('Welcome/about')?>">About</a></li>
-					<li><a href="<?=base_url('Login')?>">Login</a></li>
-				</ul>
-			</div>
-			<header class="header-section">
-				<div class="nav-switch">
-					<i class="fa fa-bars"></i>
-				</div>
-				<div class="header-social">
-					<a href=""><i class="fa fa-pinterest"></i></a>
-					<a href=""><i class="fa fa-facebook"></i></a>
-					<a href=""><i class="fa fa-twitter"></i></a>
-					<a href=""><i class="fa fa-dribbble"></i></a>
-					<a href=""><i class="fa fa-behance"></i></a>
-				</div>
-			</header> -->
-
 <body>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
 				<span class="login100-form-title-1">
-					Registrasi
+					Registrasi Pelanggan
 				</span>
 			</div>
-            <form class="user" method="post" action="<?php echo base_url(); ?>Register/reg_process_pengasuh">
+            <form class="user" method="post" action="<?php echo base_url(); ?>auth/register/verify">
 
 			<div class="login100-form validate-form"> 
 				
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-						<span class="label-input100">NIK</span>
-						<input type="number" name="nik" class="form-control" id="exampleLastName" placeholder="Masukkan Nomor Induk Kependudukan" required>
+						<span class="label-input100">Username</span>
+						<input type="text" name="username" class="form-control" id="exampleLastName" placeholder="Username" minlength="4" maxlength="16" value="<?php echo set_value('username'); ?>" required>
 						<span class="focus-input100"></span>
+						<?php echo form_error('username'); ?>
 					</div>
-					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-						<span class="label-input100">Nama Pengasuh</span>
-						<input type="text" name="nama_pengasuh" class="form-control" id="exampleLastName" placeholder="Masukkan Nama Pengasuh" required>
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Password is required">
+						<span class="label-input100">Password</span>
+						<input type="password" name="password" class="form-control" id="exampleLastName" placeholder="Password" value="<?php echo set_value('password'); ?>" required>
 						<span class="focus-input100"></span>
+						<?php echo form_error('password'); ?>
 					</div>
-					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Nama Lengkap is required">
+						<span class="label-input100">Nama Lengkap</span>
+						<input type="text" name="name" class="form-control" id="exampleLastName" placeholder="Nama Lengkap" value="<?php echo set_value('name'); ?>" required>
+						<span class="focus-input100"></span>
+						<?php echo form_error('name'); ?>
+					</div>
+					<div class="wrap-input100 validate-input m-b-26" data-validate="No.HP is required">
+						<span class="label-input100">Nomor Telepon</span>
+						<input type="number" name="phone_number" class="form-control" id="exampleLastName" placeholder="No. Hp" minlength="9" maxlength="15" value="<?php echo set_value('phone_number'); ?>" required>
+						<span class="focus-input100"></span>
+						<?php echo form_error('phone_number'); ?>
+					</div>
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Email is required">
 						<span class="label-input100">Email</span>
-                        <input type="text" class="form-control form-control-user border-left-primary"
-                                        id="email" name="email" placeholder="Masukkan Email" value="<?= set_value('email')?>" required is_unique>
+                        <input type="email" class="form-control form-control-user border-left-primary" id="email" name="email" placeholder="Masukkan Email"  minlength="10" value="<?= set_value('email');?>" required is_unique>
 						<span class="focus-input100"></span>
+						<?php echo form_error('email'); ?>
 					</div>
-
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Alamat is required">
+						<span class="label-input100">Alamat</span>
+						<input type="text" name="address" class="form-control" id="exampleLastName" placeholder="Alamat" value="<?php echo set_value('address'); ?>" required>
+						<span class="focus-input100"></span>
+						<?php echo form_error('address'); ?>
+					</div>
 					<div class="row ml-5 mt-2">
 						<div class="container-login100-form-btn ml-3">
                         <input type="submit" name="register" value="Register" class="login100-form-btn" />

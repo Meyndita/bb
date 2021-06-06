@@ -55,6 +55,12 @@
 					// $this->session->set_userdata('id_store', $ck->id);
 					redirect('Pengasuh','refresh');
 				} 
+				else if ($this->session->userdata('level') == "pelanggan") {
+					$this->session->set_userdata('username', $cek[0]->username);
+					// $this->session->set_userdata('foto', $cek[0]->foto);
+					// $this->session->set_userdata('id_store', $ck->id);
+					redirect('Pengasuh','refresh');
+				} 
 				// else if ($this->session->userdata('level') == "pencuci") {
 				// 	$this->session->set_userdata('username', $cek[0]->username);
 				// 	$this->session->set_userdata('foto', $cek[0]->foto);
@@ -95,18 +101,18 @@
 		{
 		  $verification_key = md5(rand());
 		  $data = array(
-			'nama'         => $this->input->post('nama'),
-			'username'                  => $this->input->post('username'),
+			'nama'            => $this->input->post('nama'),
+			'username'        => $this->input->post('username'),
 			'alamat'          => 'null',
-			'telepon'                => 'null',
-			'kelurahan'               => 'null',
-			'kecamatan'               => 'null',
-			'kota'               => 'null',
-			'email'                   => $this->input->post('email', true),
-			'visi'                    => 'null',
-			'misi'                    => 'null',
-			'deskripsi'                    => 'null',
-			'verification_key'        =>  $verification_key
+			'telepon'         => 'null',
+			'kelurahan'       => 'null',
+			'kecamatan'       => 'null',
+			'kota'            => 'null',
+			'email'           => $this->input->post('email', true),
+			'visi'            => 'null',
+			'misi'            => 'null',
+			'deskripsi'       => 'null',
+			'verification_key'=>  $verification_key
 		  );
 		  $update = $this->Regist_model->insert($data);
 		//   print_r($update);

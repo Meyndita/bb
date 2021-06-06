@@ -70,16 +70,7 @@
           <li class="dropdown"><a href="#"><span>Akun</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li class="nav-item"><a class="nav-link" href="<?php echo site_url('login');?>">Masuk Log</a></li>
-              <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a> -->
-                <!-- <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul> -->
-              <!-- </li> -->
-              <li><a href="<?=base_url('Login/register');?>">Daftar Pelanggan</a></li>
+              <li><a href="<?=base_url('auth/register');?>">Daftar Pelanggan </a></li>
               <li><a href="<?php echo site_url() ?>Register/reg_pengasuh">Daftar Pengasuh</a></li>
               <li><a href="<?php echo site_url() ?>Login/reg">Daftar CV</a></li>
             </ul>
@@ -88,7 +79,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Pesan Sekarang</span> Juga</a>
+      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Pesan</span> Sekarang Juga</a>
 
     </div>
   </header><!-- End Header -->

@@ -40,14 +40,12 @@
                             <form method="POST">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-5 mb-sm-0">
-                                        <input type="text" class="form-control" id="nik" name="nik"
-                                            placeholder="NIK">
+                                        <input type="text" class="form-control" id="nik" name="nik" minlength="16" maxlength="16" placeholder="NIK">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-5 mb-sm-0">
-                                        <input type="text" class="form-control" id="nama_pengasuh" name="nama_pengasuh"
-                                            placeholder="Nama Lengkap"> 
+                                        <input type="text" class="form-control" id="nama_pengasuh" name="nama_pengasuh" placeholder="Nama Lengkap"> 
                                     </div>
                                 </div>
                                 <div class="form-group row">
