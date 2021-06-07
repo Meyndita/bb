@@ -62,15 +62,29 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto" href="<?=base_url('home/index');?>" >Beranda</a></li>
-          <li><a class="nav-link scrollto" href="<?=base_url('home/tentang');?>" >Tentang</a></li>
-          <li><a class="nav-link scrollto" href="<?=base_url('home/layanan');?>" >Layanan</a></li>
-          <li><a class="nav-link scrollto" href="<?=base_url('home/daftar_pekerja');?>" >Daftar Pekerja</a></li>
-          <li><a class="nav-link scrollto" href="<?=base_url('home/kontak');?>" >Kontak</a></li>
-          <li class="dropdown"><a href="#"><span>Akun</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a class="nav-link scrollto" href="<?=base_url('home/index');?>" ><b>Beranda</b></a></li>
+          <li><a class="nav-link scrollto" href="<?=base_url('home/tentang');?>" ><b>Tentang</b></a></li>
+          <li><a class="nav-link scrollto" href="<?=base_url('home/layanan');?>" ><b>Layanan</b></a></li>
+          <li><a class="nav-link scrollto" href="<?=base_url('home/daftar_pekerja');?>" ><b>Daftar Pekerja</b></a></li>
+          <li><a class="nav-link scrollto" href="<?=base_url('home/kontak');?>" ><b>Kontak</b></a></li>
+          <li class="dropdown"><a href="#"><span><b>Akun</b></span> <i class="bi bi-chevron-down"></i></a>
             <ul>
+<<<<<<< Updated upstream
               <li class="nav-item"><a class="nav-link" href="<?php echo site_url('login');?>">Masuk Log</a></li>
               <li><a href="<?=base_url('auth/register');?>">Daftar Pelanggan </a></li>
+=======
+              <li class="nav-item"><a class="nav-link" href="<?php echo site_url('login');?>">Masuk Login</a></li>
+              <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a> -->
+                <!-- <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul> -->
+              <!-- </li> -->
+              <li><a href="<?=base_url('Login/register');?>">Daftar Pelanggan</a></li>
+>>>>>>> Stashed changes
               <li><a href="<?php echo site_url() ?>Register/reg_pengasuh">Daftar Pengasuh</a></li>
               <li><a href="<?php echo site_url() ?>Login/reg">Daftar CV</a></li>
             </ul>

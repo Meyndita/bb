@@ -5,10 +5,6 @@
 
         public function getPelangganId(){
             return ($this->db->get('pelanggan')->result_array());
-            // var_dump($this->db->get('pelanggan'));
-            // die();
-            // var_dump($this->db->where('id', $id)->get('pelanggan')->row());
-            // die;
         }
 
         public function deletePelanggan($id) {
@@ -78,16 +74,34 @@
             // die;
         }
 
-        public function getKantor(){
-            return ($this->db->get('kantor')->result_array());
-            // var_dump($this->db->get('pelanggan'));
-            // die();
-            // var_dump($this->db->where('id', $id)->get('pelanggan')->row());
-            // die;
+        public function getKantor($id){
+            $this->db->select('*');
+            $this->db->from('kantor');
+            $this->db->join('user', 'user.id = kantor.id');
+            $query = $this->db->get();
+            // return ($this->db->get('kantor')->result_array());
         }
 
-        public function getKantorId($id){
-            return $this->db->where('id', $id)->get('kantor')->row();
+        public function getKantorId(){
+            // return $this->db->where('id', $id)->get('kantor')->row();
+            $id_user = $this->get('id_user');
+            $id = $this->get('id');
+
+            if ($id_user ='') {
+                $this->db->select('*');
+                $this->db->from('user');
+                $this->db->where('kantor.id', $id);
+                $this->db->join('kantor', 'kantor.id = user.id');
+                $kantor = $this->db->get()->result();
+            } 
+            else {
+                $this->db->select('*');
+                $this->db->from('user');
+                $this->db->where('user.id_user', $id_user);
+                $this->db->where('kantor.id', $id);
+                $this->db->join('kantor', 'kantor.id = user.id');
+                $kantor = $this->db->get()->result();
+            }
         }
 
         public function insertKantor($id) {
@@ -95,11 +109,7 @@
             $array = array(
                 "alamat"=>$this->input->post('alamat', TRUE),
                 "telepon"=>$this->input->post('telepon', TRUE),
-                "kelurahan"=>$this->input->post('kelurahan', TRUE),
-                "kecamatan"=>$this->input->post('kecamatan', TRUE),
                 "kota"=>$this->input->post('kota', TRUE),
-                "visi"=>$this->input->post('visi', TRUE),
-                "misi"=>$this->input->post('misi', TRUE),
                 "deskripsi"=>$this->input->post('deskripsi', TRUE),
                 // "id_store"=>$id
             );
@@ -107,6 +117,25 @@
             $this->db->insert('kantor', $array);
         }
 
+<<<<<<< Updated upstream
+=======
+        public function updateKantor($id){
+            $post = $this->input->post();
+            $this->telepon = $post['telepon'];
+            $this->alamat = $post['alamat'];
+            $this->kota = $post['kota'];
+            $this->deskripsi = $post['deskripsi'];
+
+            $this->db->where('id', $id)->update('kantor', $this);
+            
+            if ($this->db->affected_rows() > 0) {
+                return TRUE;
+            } else {
+                return FALSE;
+            }
+        }
+
+>>>>>>> Stashed changes
         public function searchPesanan($username = null) {
             $input = $this->input->post('keyword');
             $this->db->select('p.*');

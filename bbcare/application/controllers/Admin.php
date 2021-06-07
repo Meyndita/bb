@@ -7,10 +7,9 @@
 			$this->load->model('Admin_Model');
 			$this->load->library('form_validation');
 
-			if ($this->session->userdata('level') != "admin") {
-				redirect('Login', 'refresh');
+			// if ($this->session->userdata('level') != "admin") {
+			// 	redirect('Login', 'refresh');
 			}
-		}
 
         public function index() {
 			// $username = $this->session->userdata('username');
@@ -82,8 +81,13 @@
 			$username = $this->session->userdata('username');
 			$data['data'] = $this->Admin_Model->getPesananId();
 			$data['data'] = $this->Admin_Model->searchPesanan($username);
+<<<<<<< Updated upstream
 			
 			$this->form_validation->set_rules('id_pesan', 'Id Pesan', 'trim|required');
+=======
+
+			$this->form_validation->set_rules('id_pesan', 'Id', 'trim|required');
+>>>>>>> Stashed changes
 			$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
 			$this->form_validation->set_rules('email', 'Email', 'trim|required');
 			$this->form_validation->set_rules('telp', 'No. Telepon', 'trim|required');
@@ -98,20 +102,26 @@
 			}
 			else {
 				$this->load->view('Template/headerAdmin');
+<<<<<<< Updated upstream
 				$this->load->view('Admin/Pesanan', $data);
+=======
+				$this->load->view('Admin/pesanan', $data);
+>>>>>>> Stashed changes
 				$this->load->view('Template/footer');
 			}
 		}
 
 		public function CV() {
-			// $username = $this->session->userdata('username');
-			// $data['get'] = $this->Admin_Model->getKantorId($id);
+			$id = $this->session->userdata('id');
+			$data['get'] = $this->Admin_Model->getKantor($id);
 
-			$this->form_validation->set_rules('nama', 'Nama CV', 'trim|required');
+			$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
 			$this->form_validation->set_rules('telepon', 'No. Telepon', 'trim|required');
+			$this->form_validation->set_rules('kota', 'Kota', 'trim|required');
+			$this->form_validation->set_rules('deskripsi', 'Deskripsi', 'trim|required');
 
 			if ($this->form_validation->run() == TRUE) {
-				$this->Admin_Model->insertKantor($id);
+				$this->Admin_Model->updateKantor($id);
 
 				redirect('Admin/biodata','refresh');
 			}

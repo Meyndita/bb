@@ -5,6 +5,8 @@
 		public function __construct() {
 			parent::__construct();
 			$this->load->model('Pengasuh_Model');
+			$this->load->library('form_validation');
+
 
 			// if ($this->session->userdata('level') != "owner") {
 			// 	redirect('Login', 'refresh');
@@ -20,7 +22,7 @@
 		}
 
         public function Biodata() {
-			// $id = $this->session->userdata('id');
+			$id = $this->session->userdata('id');
 			// $username = $this->session->userdata('username');
 			// $title['title'] = 'Riwayat Pesanan | Point Care Laundry';
 			$data['data'] = $this->Pengasuh_Model->getPengasuh();
@@ -33,12 +35,14 @@
 
         public function editPengasuh($id){
 			
-			$title['title'] = 'Edit Daftar Pesanan | Pegawai Point Care Laundry';
+			$title['title'] = 'Edit Biodata | Pengasuh Baby Care';
 			$data['get'] = $this->Pengasuh_Model->getPengasuhId($id);
 			
 			$this->form_validation->set_rules('telepon', 'Telepon', 'trim|required');
             $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'trim|required');
             $this->form_validation->set_rules('agama', 'Agama', 'trim|required');
+			$this->form_validation->set_rules('ketegori', 'Kategori', 'trim|required');
+			$this->form_validation->set_rules('foto', 'Foto', 'trim|required');
             $this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
             $this->form_validation->set_rules('pendidikan', 'Pendidikan', 'trim|required');
             $this->form_validation->set_rules('status', 'Status', 'trim|required');
@@ -68,7 +72,7 @@
 			
 			
 			if ($this->form_validation->run() == TRUE) {
-				$this->Pegawai_Model->insertPengasuh($id);
+				$this->Pengasuh_Model->insertPengasuh($id);
 				
 				redirect('Pengasuh/Biodata','refresh');
 			}

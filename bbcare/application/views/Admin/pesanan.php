@@ -5,10 +5,10 @@
                      <br>
                      
                      <div class="col-lg-12 col-6 text-right">
-                     <a href="<?=base_url('Admin/addPelanggan')?>" class="btn btn-info">
+                     <!-- <a href="<?=base_url('Admin/addPelanggan')?>" class="btn btn-info">
                         <span class="icon text-white-50"></span>
                         <span class="text">Tambah Pelanggan Baru</span>
-                        </a>
+                        </a> -->
                         
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -53,8 +53,8 @@
                                     <tr>
                                         <td class="text-center"><?=$i?></td>
                                         <td class="text-center"><?=$key['nama']?></td>
-                                        <td class="text-center"><?=$key['telp']?></td>
                                         <td class="text-center"><?=$key['kategori']?></td>
+                                        <td class="text-center"><?=$key['telp']?></td>
                                         <td class="text-center"><?=$key['tgl_pesan']?></td>
                                         <td class="text-center">
                                         <a href="<?=base_url()?>Admin/editPesanan/<?=$key['id_pesan']?>" class="btn btn-success btn-circle btn-sm">

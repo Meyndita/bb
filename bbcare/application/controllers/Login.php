@@ -51,7 +51,7 @@
 				} 
 				else if ($this->session->userdata('level') == "pengasuh") {
 					$this->session->set_userdata('username', $cek[0]->username);
-					// $this->session->set_userdata('foto', $cek[0]->foto);
+					$this->session->set_userdata('id_user', $cek[0]->id_user);
 					// $this->session->set_userdata('id_store', $ck->id);
 					redirect('Pengasuh','refresh');
 				} 
@@ -104,6 +104,7 @@
 			'nama'            => $this->input->post('nama'),
 			'username'        => $this->input->post('username'),
 			'alamat'          => 'null',
+<<<<<<< Updated upstream
 			'telepon'         => 'null',
 			'kelurahan'       => 'null',
 			'kecamatan'       => 'null',
@@ -113,6 +114,13 @@
 			'misi'            => 'null',
 			'deskripsi'       => 'null',
 			'verification_key'=>  $verification_key
+=======
+			'telepon'                => 'null',
+			'kota'               => 'null',
+			'email'                   => $this->input->post('email', true),
+			'deskripsi'                    => 'null',
+			'verification_key'        =>  $verification_key
+>>>>>>> Stashed changes
 		  );
 		  $update = $this->Regist_model->insert($data);
 		//   print_r($update);

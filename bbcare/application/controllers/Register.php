@@ -78,6 +78,8 @@
 			$this->load->view('login/regist_pengasuh', $data);
 		  } else {
 			$email = $this->input->post('email', true);
+			$id = $this->input->post('id', true);
+
 	  
 			echo "gagal";
 		  }
@@ -157,7 +159,7 @@
 					  "password" => rand(),
 					"is_active" =>'aktif',
 					"level" =>'pengasuh',
-					"id" => $pengasuhData->id,
+					"id_pengasuh" => $pengasuhData->id,
 					'date_created' => time(),
 		  
 				  );

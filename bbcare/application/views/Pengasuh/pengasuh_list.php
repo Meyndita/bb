@@ -26,7 +26,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr class="text-center">
-                                            <th>ID</th>
+                                            <!-- <th>ID</th> -->
                                             <th>Nama Lengkap</th>
                                             <th>Email</th>
                                             <th>Action</th>
@@ -34,10 +34,20 @@
                                     </thead>
                                     <tbody>
                                     <?php 
-                                        $i = 1;
+                                    // if( !empty($results) ) {
+                                        // foreach($results as $row) {
+                                        //     echo '<tr>';
+                                        //     echo '<td>'.$row->bcode.'</td>';
+                                        //     echo '<td>'.$row->bname.'</td>';
+                                        //     echo '<td>'.$row->btel.'</td>';
+                                        //     echo '<td>'.$row->badd.'</td>';
+                                        //     echo '</tr>';
+                                        // }
+                                    
+                                        // $i = 1;
                                         foreach ($data as $key) { ?>
                                     <tr>
-                                        <td class="text-center"><?=$i?></td>
+                                        <!-- <td class="text-center"><?=$i?></td> -->
                                         <td class="text-center"><?=$key['nama_pengasuh']?></td>
                                         <td class="text-center"><?=$key['email']?></td>
                                         <td class="text-center">
@@ -52,7 +62,8 @@
                                         </a> -->
                                         </td>
                                     </tr>
-                                    <?php $i++;} ?>
+                                    
+                                    <?php ;} ?>
                                     </tbody>
                                 </table>
                             </div>

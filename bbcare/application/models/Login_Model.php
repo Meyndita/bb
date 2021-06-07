@@ -7,7 +7,7 @@
         }
 
 		public function loginShop($username, $password) {
-			$this->db->select('user.username, user.password, user.level');
+			$this->db->select('user.id_user, user.username, user.password, user.level');
 			$this->db->from('user');
 			$this->db->where('username', $username);
 			$this->db->where('password', $password);

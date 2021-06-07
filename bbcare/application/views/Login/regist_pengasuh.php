@@ -79,7 +79,15 @@
             <form class="user" method="post" action="<?php echo base_url(); ?>Register/reg_process_pengasuh">
 
 			<div class="login100-form validate-form"> 
-				
+					<!-- <div class="form-group row">
+					<label for="id">Nama Kantor :</label>
+					<select class="form-control " name="id">
+						<option value="" selected="">-- Pilih --</option>
+						<?php foreach ($kantor as $rows) : ?>
+						<option value="<?php echo $rows->id; ?>"> <?php echo $rows->nama; ?> </option>
+						<?php endforeach; ?>
+					</select>
+					</div> -->
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
 						<span class="label-input100">NIK</span>
 						<input type="number" name="nik" class="form-control" id="exampleLastName" placeholder="Masukkan Nomor Induk Kependudukan" minlength="16" maxlength="16" required>

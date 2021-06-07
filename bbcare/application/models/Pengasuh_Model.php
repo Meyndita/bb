@@ -5,6 +5,17 @@
         
         public function getPengasuh(){
             return ($this->db->get('pengasuh')->result_array());
+
+        //     $results = array();
+        //     $this->db->select('id, nama_pengasuh, alamat, email, telepon, kategori, nik, tgl_lahir, agama, status, foto, pendidikan');
+        //     $this->db->from('pengasuh');
+
+        //     $query = $this->db->get();
+
+        //     if($query->num_rows() > 0) {
+        //     $results = $query->result();
+        // }
+        //     return $results;
         }
 
         public function getPengasuhId($id){
@@ -16,6 +27,9 @@
             $this->telepon = $post['telepon'];
             $this->tgl_lahir = $post['tgl_lahir'];
             $this->agama = $post['agama'];
+            // $this->foto = $this->UploadImage();
+            // $this->foto = $post['foto'];
+            $this->kategori = $post['kategori'];
             $this->alamat = $post['alamat'];
             $this->pendidikan = $post['pendidikan'];
             $this->status = $post['status'];
@@ -27,6 +41,21 @@
             } else {
                 return FALSE;
             }
+        }
+
+        private function UploadImage() {
+            
+            $config['upload_path'] = './uploads/user';
+            $config['allowed_types'] = 'jpg|png|jpeg';
+            $config['max_size']  = '8192';
+            $config['overwrite'] = true;
+            
+            $this->load->library('upload', $config);
+            
+            if ($this->upload->do_upload('foto')){
+                return $this->upload->data("file_name");
+            }
+            return "default.png";
         }
 
         public function insertPengasuh($id) {
