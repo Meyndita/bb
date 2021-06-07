@@ -104,23 +104,13 @@
 			'nama'            => $this->input->post('nama'),
 			'username'        => $this->input->post('username'),
 			'alamat'          => 'null',
-<<<<<<< Updated upstream
 			'telepon'         => 'null',
-			'kelurahan'       => 'null',
-			'kecamatan'       => 'null',
 			'kota'            => 'null',
 			'email'           => $this->input->post('email', true),
-			'visi'            => 'null',
-			'misi'            => 'null',
-			'deskripsi'       => 'null',
-			'verification_key'=>  $verification_key
-=======
 			'telepon'                => 'null',
 			'kota'               => 'null',
-			'email'                   => $this->input->post('email', true),
 			'deskripsi'                    => 'null',
 			'verification_key'        =>  $verification_key
->>>>>>> Stashed changes
 		  );
 		  $update = $this->Regist_model->insert($data);
 		//   print_r($update);

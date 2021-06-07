@@ -81,13 +81,8 @@
 			$username = $this->session->userdata('username');
 			$data['data'] = $this->Admin_Model->getPesananId();
 			$data['data'] = $this->Admin_Model->searchPesanan($username);
-<<<<<<< Updated upstream
 			
 			$this->form_validation->set_rules('id_pesan', 'Id Pesan', 'trim|required');
-=======
-
-			$this->form_validation->set_rules('id_pesan', 'Id', 'trim|required');
->>>>>>> Stashed changes
 			$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
 			$this->form_validation->set_rules('email', 'Email', 'trim|required');
 			$this->form_validation->set_rules('telp', 'No. Telepon', 'trim|required');
@@ -102,11 +97,7 @@
 			}
 			else {
 				$this->load->view('Template/headerAdmin');
-<<<<<<< Updated upstream
 				$this->load->view('Admin/Pesanan', $data);
-=======
-				$this->load->view('Admin/pesanan', $data);
->>>>>>> Stashed changes
 				$this->load->view('Template/footer');
 			}
 		}

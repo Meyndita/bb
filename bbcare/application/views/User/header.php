@@ -69,10 +69,6 @@
           <li><a class="nav-link scrollto" href="<?=base_url('home/kontak');?>" ><b>Kontak</b></a></li>
           <li class="dropdown"><a href="#"><span><b>Akun</b></span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-<<<<<<< Updated upstream
-              <li class="nav-item"><a class="nav-link" href="<?php echo site_url('login');?>">Masuk Log</a></li>
-              <li><a href="<?=base_url('auth/register');?>">Daftar Pelanggan </a></li>
-=======
               <li class="nav-item"><a class="nav-link" href="<?php echo site_url('login');?>">Masuk Login</a></li>
               <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a> -->
                 <!-- <ul>
@@ -83,8 +79,7 @@
                   <li><a href="#">Deep Drop Down 5</a></li>
                 </ul> -->
               <!-- </li> -->
-              <li><a href="<?=base_url('Login/register');?>">Daftar Pelanggan</a></li>
->>>>>>> Stashed changes
+              <li><a href="<?=base_url('auth/register');?>">Daftar Pelanggan</a></li>
               <li><a href="<?php echo site_url() ?>Register/reg_pengasuh">Daftar Pengasuh</a></li>
               <li><a href="<?php echo site_url() ?>Login/reg">Daftar CV</a></li>
             </ul>

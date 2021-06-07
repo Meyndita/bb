@@ -117,8 +117,6 @@
             $this->db->insert('kantor', $array);
         }
 
-<<<<<<< Updated upstream
-=======
         public function updateKantor($id){
             $post = $this->input->post();
             $this->telepon = $post['telepon'];
@@ -135,7 +133,6 @@
             }
         }
 
->>>>>>> Stashed changes
         public function searchPesanan($username = null) {
             $input = $this->input->post('keyword');
             $this->db->select('p.*');

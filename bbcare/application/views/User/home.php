@@ -135,14 +135,8 @@
           <p>Segera dapatkan Baby Sitter yang sesuai dengan keinginan Anda. Lakukan pemesanan dengan mengisi form di bawah ini.</p>
         </div>
 
-<<<<<<< Updated upstream
-        <?php echo form_open('Admin/addPesanan');?>
-        <form action="" method="post" role="form"  data-aos="fade-up" data-aos-delay="100">
-=======
         <?=form_open('Admin/addPesanan')?>
         <form action="" method="post" data-aos="fade-up" data-aos-delay="100">
-        
->>>>>>> Stashed changes
           <div class="row">
             <div class="col-md-4 form-group">
               <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama" required>
@@ -172,28 +166,16 @@
           <div class="form-group mt-3">
             <textarea class="form-control" name="pesan" rows="5" placeholder="Pesan (Optional)"></textarea>
           </div>
-<<<<<<< Updated upstream
-=======
           <br>
->>>>>>> Stashed changes
           <!-- <div class="my-3">
             <div class="loading">Loading</div>
             <div class="error-message"></div>
             <div class="sent-message">Pemesanan Anda telah berhasil terkirim, Terima Kasih!</div>
           </div> -->
-<<<<<<< Updated upstream
-          <br>
-          <div class="text-center"><button class="appointment-btn" type="submit">Pesan Sekarang Juga</button></div>
-         
-        </form>
-        <?= form_close(); ?>
-=======
           <div class="text-center"><button class="appointment-btn" type="submit"> Pesan Sekarang Juga </button></div>
           
         </form>
         <?=form_close();?>
-        
->>>>>>> Stashed changes
         
       </div>
     </section><!-- End Appointment Section -->
