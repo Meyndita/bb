@@ -54,7 +54,7 @@
             return $this->db->get()->result_array();    
         }
 
-        public function Pesanan($id) {
+        public function Pesanan($id_pesan) {
             if ($this->input->post('submit')) {
                 $array = array(
                     "id_pesan"=>$this->input->post('id_pesan', TRUE),
@@ -105,6 +105,15 @@
             );
             }
             $this->db->insert('kantor', $array);
+        }
+
+        public function searchPesanan($username = null) {
+            $input = $this->input->post('keyword');
+            $this->db->select('p.*');
+            $this->db->from('pesanan as p');
+            $this->db->or_like('nama', $input);
+            // $this->db->where('id_pesan', $id);
+            return $this->db->get()->result_array();    
         }
         
     }

@@ -136,7 +136,7 @@
         </div>
 
         <?php echo form_open('Admin/addPesanan');?>
-        <form action="<?php echo base_url('Admin/addPesanan');?>" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+        <form action="" method="post" role="form"  data-aos="fade-up" data-aos-delay="100">
           <div class="row">
             <div class="col-md-4 form-group">
               <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama" required>
@@ -166,14 +166,16 @@
           <div class="form-group mt-3">
             <textarea class="form-control" name="pesan" rows="5" placeholder="Pesan (Optional)"></textarea>
           </div>
-          <div class="my-3">
+          <!-- <div class="my-3">
             <div class="loading">Loading</div>
             <div class="error-message"></div>
             <div class="sent-message">Pemesanan Anda telah berhasil terkirim, Terima Kasih!</div>
-          </div>
-          <div class="text-center"><button type="submit">Pesan Sekarang Juga</button></div>
-          <?= form_close(); ?>
+          </div> -->
+          <br>
+          <div class="text-center"><button class="appointment-btn" type="submit">Pesan Sekarang Juga</button></div>
+         
         </form>
+        <?= form_close(); ?>
         
       </div>
     </section><!-- End Appointment Section -->

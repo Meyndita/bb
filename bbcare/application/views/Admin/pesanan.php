@@ -47,9 +47,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php 
+                                    <!-- <?php 
                                         $i = 1;
-                                        foreach ($data as $key) { ?>
+                                        foreach ($data as $key) { ?> -->
                                     <tr>
                                         <td class="text-center"><?=$i?></td>
                                         <td class="text-center"><?=$key['nama']?></td>
@@ -57,13 +57,13 @@
                                         <td class="text-center"><?=$key['kategori']?></td>
                                         <td class="text-center"><?=$key['tgl_pesan']?></td>
                                         <td class="text-center">
-                                        <a href="<?=base_url()?>Admin/editPelanggan/<?=$key['id']?>" class="btn btn-success btn-circle btn-sm">
+                                        <a href="<?=base_url()?>Admin/editPesanan/<?=$key['id_pesan']?>" class="btn btn-success btn-circle btn-sm">
                                         <i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="<?=base_url()?>Admin/detailPelanggan/<?=$key['id']?>" class="btn btn-info btn-circle btn-sm">
+                                        <!-- <a href="<?=base_url()?>Admin/detailPelanggan/<?=$key['id']?>" class="btn btn-info btn-circle btn-sm">
                                         <i class="fas fa-info-circle"></i> 
-                                        </a>
-                                        <a href="<?=base_url()?>Admin/deletePelanggan/<?=$key['id']?>" class="btn btn-danger btn-circle btn-sm">
+                                        </a> -->
+                                        <a href="<?=base_url()?>Admin/deletePesanan/<?=$key['id_pesan']?>" class="btn btn-danger btn-circle btn-sm">
                                         <i class="fa fa-trash"></i> 
                                         </a>
                                         </td>

@@ -78,8 +78,12 @@
 		}
 
 		public function addPesanan(){
-			// $id = $this->session->userdata('id_store');
+			$id = $this->session->userdata('id_pesan');
+			$username = $this->session->userdata('username');
 			$data['data'] = $this->Admin_Model->getPesananId();
+			$data['data'] = $this->Admin_Model->searchPesanan($username);
+			
+			$this->form_validation->set_rules('id_pesan', 'Id Pesan', 'trim|required');
 			$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
 			$this->form_validation->set_rules('email', 'Email', 'trim|required');
 			$this->form_validation->set_rules('telp', 'No. Telepon', 'trim|required');
@@ -88,13 +92,13 @@
 			$this->form_validation->set_rules('pesan', 'Pesan', 'trim|required');
 			
 			if ($this->form_validation->run() == TRUE) {
-				$this->Admin_Model->Pesanan($id);
+				$this->Admin_Model->Pesanan($id_pesan);
 				
 				redirect('User/home','refresh');
 			}
 			else {
 				$this->load->view('Template/headerAdmin');
-				$this->load->view('User/home');
+				$this->load->view('Admin/Pesanan', $data);
 				$this->load->view('Template/footer');
 			}
 		}
