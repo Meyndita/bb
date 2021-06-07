@@ -42,35 +42,11 @@
             </li>
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('Admin/addPesanan')?>">
+                <a class="nav-link" href="<?=base_url('Pelanggan/addPesanan')?>">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Tambah Pesanan</span></a>
+                    <span>Keranjang</span></a>
             </li>
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('Admin/pelanggan')?>">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Pelanggan</span></a>
-            </li>
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('Admin/pengasuh')?>">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Pengasuh</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('Admin/sewa')?>">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Persewaan</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('Admin/riwayat')?>">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Riwayat</span></a>
-            </li>
+            
 
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url(' ')?>">

@@ -6,16 +6,16 @@
 			parent::__construct();
 			$this->load->model('Pelanggan_Model');
 
-			if ($this->session->userdata('level') != "pelanggan") {
-				redirect('Login', 'refresh');
-			}
+			// if ($this->session->userdata('level') != "pelanggan") {
+			// 	redirect('Login', 'refresh');
+			// }
 		}
 
         public function index() {
 			// $username = $this->session->userdata('username');
 
 			$this->load->view('template/headerPelanggan');			
-			$this->load->view('Superadmin/index');
+			$this->load->view('Pelanggan/index');
 			$this->load->view('template/footer');
 
 		}
